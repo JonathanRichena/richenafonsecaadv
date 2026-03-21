@@ -164,6 +164,16 @@ nav a{
   align-items:center;
 }
 nav a:hover{opacity:.82}
+.menu-toggle{
+  display:none;
+  background:transparent;
+  border:1px solid rgba(212,175,55,.35);
+  color:var(--gold-soft);
+  border-radius:10px;
+  padding:8px 12px;
+  font-size:1.1rem;
+  cursor:pointer;
+}
 
 .hero{
   padding:40px 0 84px; /* reduz espaço superior */
@@ -397,17 +407,32 @@ footer{
   .header-inner{
     min-height:auto;
     padding:14px 0;
-    flex-direction:column;
-    align-items:flex-start;
+    flex-direction:row;
+    align-items:center;
     gap:12px;
+    flex-wrap:wrap;
+  }
+  .menu-toggle{
+    display:inline-flex;
+    margin-left:auto;
   }
   nav{
-    gap:14px;
+    display:none;
     width:100%;
-    overflow-x:auto;
-    padding-bottom:2px;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:10px;
+    padding:12px 0 4px;
+    border-top:1px solid rgba(255,255,255,.06);
   }
-  nav a{white-space:nowrap}
+  nav.is-open{
+    display:flex;
+  }
+  nav a{
+    white-space:nowrap;
+    font-size:.98rem;
+    padding:4px 0;
+  }
   .brand-title{font-size:1.6rem}
   .brand-subtitle{font-size:.74rem}
   .hero{
@@ -482,7 +507,8 @@ footer{
         <div class="brand-subtitle">Advocacia e Assessoria Jurídica</div>
       </div>
     </a>
-    <nav>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-principal">☰</button>
+    <nav id="menu-principal">
       <a href="#inicio">Início</a>
       <a href="#areas">Áreas</a>
       <a href="#sobre">Sobre</a>
@@ -637,6 +663,24 @@ footer{
     document.addEventListener('DOMContentLoaded', bindSmoothScroll);
   } else {
     bindSmoothScroll();
+  }
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('#menu-principal');
+
+  if (menuToggle && menu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    });
+
+    menu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth <= 760) {
+          menu.classList.remove('is-open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
   }
 </script>
 </body>
