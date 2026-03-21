@@ -40,11 +40,17 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .header-inner{
-  min-height:200px; /* acompanha o logo grande */
+  min-height:90px; /* reduz altura */
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
+}
+
+@media (max-width:760px){
+  .header-inner{
+    min-height:72px;
+  }
 }
 
 @media (max-width:760px){
@@ -68,11 +74,17 @@ header{
 
 
 .logo-wrap img{
-  height:200px !important; /* desktop grande conforme solicitado */
+  height:90px !important; /* reduz proporcionalmente */
   width:auto !important;
   max-height:none !important;
   object-fit:contain;
   display:block;
+}
+
+@media (max-width:760px){
+  .logo-wrap img{
+    height:42px !important;
+  }
 }
 
 @media (max-width:760px){
