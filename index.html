@@ -40,11 +40,17 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .header-inner{
-  min-height:96px; /* espaço suficiente */
+  min-height:110px; /* espaço no desktop */
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
+}
+
+@media (max-width:760px){
+  .header-inner{
+    min-height:72px;
+  }
 }
 
 .logo-wrap{
@@ -56,11 +62,17 @@ header{
 
 
 .logo-wrap img{
-  height:80px !important; /* aumento forte */
+  height:64px !important; /* grande no desktop */
   width:auto !important;
   max-height:none !important;
   object-fit:contain;
   display:block;
+}
+
+@media (max-width:760px){
+  .logo-wrap img{
+    height:42px !important; /* menor no celular */
+  }
 }
 
 
