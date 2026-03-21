@@ -41,11 +41,12 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .header-inner{
-  min-height:90px; /* reduz altura */
+  min-height:110px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:24px;
+  padding:8px 0;
 }
 
 @media (max-width:760px){
@@ -69,17 +70,29 @@ header{
 .logo-wrap{
   display:flex;
   align-items:center;
-  gap:8px;
+  gap:2px; /* ainda mais próximo */
   text-decoration:none;
 }
 
 
 .logo-wrap img{
-  height:90px !important; /* reduz proporcionalmente */
+  height:125px !important; /* um pouco maior */
   width:auto !important;
   max-height:none !important;
   object-fit:contain;
   display:block;
+  filter: drop-shadow(0 0 6px rgba(212,175,55,0.35));
+  transition: all 0.3s ease;
+}
+
+.logo-wrap img:hover{
+  filter: drop-shadow(0 0 10px rgba(212,175,55,0.6));
+  transform: scale(1.03);
+}
+
+.logo-wrap img:hover{
+  filter: drop-shadow(0 0 10px rgba(212,175,55,0.6)); /* brilho mais forte no hover */
+  transform: scale(1.03);
 }
 
 @media (max-width:760px){
