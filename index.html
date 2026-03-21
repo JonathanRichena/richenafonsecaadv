@@ -62,11 +62,23 @@ header{
 
 
 .logo-wrap img{
-  height:64px !important; /* grande no desktop */
+  height:100px !important; /* tamanho solicitado para desktop */
   width:auto !important;
   max-height:none !important;
   object-fit:contain;
   display:block;
+}
+
+@media (max-width:760px){
+  .logo-wrap img{
+    height:42px !important; /* mantém mobile */
+  }
+}
+
+@media (max-width:760px){
+  .logo-wrap img{
+    height:42px !important; /* mantém como estava no celular */
+  }
 }
 
 @media (max-width:760px){
