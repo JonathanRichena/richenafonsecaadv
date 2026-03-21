@@ -40,7 +40,7 @@ header{
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .header-inner{
-  min-height:78px;
+  min-height:88px; /* aumenta altura do header para comportar logo maior */
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -53,10 +53,11 @@ header{
   text-decoration:none;
 }
 .logo-wrap img{
-  height:56px; /* maior destaque */
+  height:64px; /* aumento maior para destaque */
   width:auto;
   object-fit:contain;
   display:block;
+  transform:translateY(2px); /* alinhamento fino */
 }
 
 .logo-rf{
