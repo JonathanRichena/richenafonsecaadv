@@ -55,10 +55,11 @@ header{
 }
 
 .logo-wrap img{
-  height: 2.2rem !important; /* iguala ao tamanho visual do título */
+  height: 2.6rem !important; /* iguala e destaca junto ao título */
   width: auto !important;
   object-fit: contain;
-  display: block;
+  image-rendering: -webkit-optimize-contrast; /* melhora nitidez */
+  display:block;
 }
 
 
@@ -71,7 +72,7 @@ header{
 .brand-title{
   margin:0;
   font-family:'Cormorant Garamond',serif;
-  font-size:2.2rem; /* referência para igualar ao logo */
+  font-size:2.4rem; /* referência visual do logo */
   line-height:1;
   color:var(--gold-soft);
 }
