@@ -454,6 +454,33 @@ footer{
   </div>
 </footer>
 <script>
+  function smoothScrollTo(targetY, duration = 700) {
+    const startY = window.pageYOffset;
+    const diff = targetY - startY;
+    let startTime = null;
+
+    function easeInOutCubic(t) {
+      return t < 0.5
+        ? 4 * t * t * t
+        : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = timestamp - startTime;
+      const percent = Math.min(progress / duration, 1);
+      const eased = easeInOutCubic(percent);
+
+      window.scrollTo(0, startY + diff * eased);
+
+      if (progress < duration) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
   document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
@@ -462,12 +489,9 @@ footer{
 
       const header = document.querySelector('header');
       const headerOffset = header ? header.offsetHeight : 0;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - 12;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - 10;
 
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
+      smoothScrollTo(targetPosition, 700);
     });
   });
 </script>
