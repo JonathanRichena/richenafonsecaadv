@@ -462,9 +462,14 @@ footer{
   </div>
 </footer>
 <script>
-  function smoothScrollTo(targetY, duration = 700) {
-    const startY = window.pageYOffset;
-    const diff = targetY - startY;
+  function smoothScrollTo(targetY, duration = 900) {
+    const startY = window.pageYOffset || window.scrollY;
+    const maxScroll = Math.max(
+      document.body.scrollHeight,
+      document.documentElement.scrollHeight
+    ) - window.innerHeight;
+    const finalY = Math.max(0, Math.min(targetY, maxScroll));
+    const diff = finalY - startY;
     let startTime = null;
 
     function easeInOutCubic(t) {
@@ -475,33 +480,39 @@ footer{
 
     function step(timestamp) {
       if (!startTime) startTime = timestamp;
-      const progress = timestamp - startTime;
-      const percent = Math.min(progress / duration, 1);
-      const eased = easeInOutCubic(percent);
-
+      const elapsed = timestamp - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = easeInOutCubic(progress);
       window.scrollTo(0, startY + diff * eased);
-
-      if (progress < duration) {
-        requestAnimationFrame(step);
-      }
+      if (progress < 1) requestAnimationFrame(step);
     }
 
     requestAnimationFrame(step);
   }
 
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener('click', (event) => {
-      event.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (!target) return;
+  function bindSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach((link) => {
+      link.addEventListener('click', function(event) {
+        const href = this.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
 
-      const header = document.querySelector('header');
-      const headerOffset = header ? header.offsetHeight : 0;
-      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - 10;
-
-      smoothScrollTo(targetPosition, 700);
+        event.preventDefault();
+        const header = document.querySelector('header');
+        const headerOffset = header ? header.offsetHeight : 0;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - 8;
+        smoothScrollTo(targetPosition, 900);
+      });
     });
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bindSmoothScroll);
+  } else {
+    bindSmoothScroll();
+  }
 </script>
 </body>
 </html>
