@@ -53,11 +53,19 @@ header{
   text-decoration:none;
 }
 .logo-wrap img{
-  width:44px;
-  height:44px;
+  width:52px;
+  height:52px;
   object-fit:cover;
-  border-radius:10px;
+  object-position:left center;
+  border-radius:12px;
   display:block;
+}
+
+.logo-rf{
+  width:52px;
+  height:52px;
+  object-fit:cover;
+  object-position:left center;
 }
 .brand-title{
   margin:0;
@@ -342,7 +350,7 @@ footer{
 <header>
   <div class="container header-inner">
     <a href="#inicio" class="logo-wrap">
-      <img src="logo.png" alt="Logo Richena & Fonseca">
+      <img src="logo.png" alt="Logo Richena & Fonseca" class="logo-rf">
       <div>
         <p class="brand-title">Richena & Fonseca</p>
         <div class="brand-subtitle">Advocacia e Assessoria Jurídica</div>
@@ -481,7 +489,7 @@ footer{
     requestAnimationFrame(step);
   }
 
-  document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
       event.preventDefault();
       const target = document.querySelector(link.getAttribute('href'));
