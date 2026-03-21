@@ -4,38 +4,124 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Richena & Fonseca</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Poppins',sans-serif;background:#0b1c4d;color:#fff}
+body{margin:0;font-family:'Inter',sans-serif;background:#07163a;color:#fff}
 
-header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px}
-header h1{color:#f5d27a;margin:0}
-nav a{color:#f5d27a;margin-left:20px;text-decoration:none;font-weight:500}
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px;position:fixed;width:100%;top:0;background:rgba(7,22,58,0.9);backdrop-filter:blur(10px);z-index:1000}
+.logo-container{display:flex;align-items:center;gap:12px}
+.logo-container img{height:40px}
+.logo-container span{color:#d4af37;font-weight:600;font-size:20px}
+nav{
+  display:flex;
+  align-items:center;
+  gap:25px;
+}
+nav a{
+  color:#d4af37;
+  text-decoration:none;
+  font-weight:500;
+}
 
-.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(180deg,#0b1c4d 0%,#122766 100%)}
-.hero h2{font-size:60px;color:#f5d27a;margin-bottom:10px;animation:fadeIn 1.5s ease}
-.hero p{font-size:20px;max-width:600px;opacity:0.9}
+.hero{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  gap:10px;
+}
+.hero-logo{width:180px;height:180px;border-radius:50%;display:flex;justify-content:center;align-items:center;box-shadow:0 0 60px rgba(212,175,55,0.25);animation:float 4s ease-in-out infinite}
+.hero-logo img{width:130px}
 
-.section{padding:80px 20px;text-align:center}
-.section h3{font-size:36px;color:#f5d27a;margin-bottom:40px}
+.hero h2{
+  font-size:60px;
+  color:#d4af37;
+  margin:10px 0;
+  text-align:center;
+  font-family:'Playfair Display',serif;
+  letter-spacing:1px;
+}
+.hero p{
+  font-size:20px;
+  max-width:600px;
+  opacity:0.9;
+  text-align:center;
+}
 
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;max-width:1100px;margin:0 auto}
-.card{background:#122766;padding:25px;border-radius:15px;transition:0.3s;border:1px solid rgba(255,255,255,0.1)}
-.card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,0.4)}
+.section{padding:100px 20px;text-align:center}
+.section h3{font-size:38px;color:#d4af37;margin-bottom:40px}
 
-.sobre{max-width:800px;margin:0 auto;line-height:1.6}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  max-width:1000px;
+  margin:0 auto;
+  justify-items:center;
+}
+.card{
+  width:100%;
+  max-width:280px;
+  background:rgba(255,255,255,0.05);
+  padding:25px;
+  border-radius:15px;
+  border:1px solid rgba(212,175,55,0.2);
+  backdrop-filter:blur(10px);
+  transition:0.4s;
+  text-align:center;
+}
+.card:hover{transform:translateY(-10px);box-shadow:0 20px 50px rgba(0,0,0,0.5)}
 
-.cta{margin-top:30px}
-.whatsapp{display:inline-block;background:#f5d27a;color:#0b1c4d;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s}
-.whatsapp:hover{transform:scale(1.05)}
+.cta{
+  margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:16px;
+}
+.whatsapp{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  background:#d4af37;
+  color:#07163a;
+  padding:14px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  transition:0.3s;
+  min-width:220px;
+}
+.whatsapp:hover{transform:scale(1.08)}
+.whatsapp:hover{transform:scale(1.08)}
 
-.social{margin-top:20px}
-.social a{color:#fff;text-decoration:none;font-size:18px}
-.social a:hover{color:#f5d27a}
+.instagram-btn{
+  display:inline-flex;
+  justify-content:center;
+  align-items:center;
+  border:1px solid #d4af37;
+  color:#d4af37;
+  padding:14px 28px;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+  min-width:220px;
+}
+.instagram-btn:hover{
+  background:#d4af37;
+  color:#07163a;
+}
+.instagram-btn:hover{background:#d4af37;color:#07163a}
 
-footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:40px}
+.float-whatsapp{position:fixed;bottom:20px;right:20px;background:#25d366;color:#fff;padding:15px 18px;border-radius:50%;font-size:22px;text-decoration:none;box-shadow:0 5px 20px rgba(0,0,0,0.3)}
+
+footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1)}
 
 @keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 
 @media(max-width:768px){.hero h2{font-size:40px}}
 </style>
@@ -43,9 +129,9 @@ footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1)
 <body>
 
 <header>
-  <div style="display:flex;align-items:center;gap:15px;">
-    <img src="logo.png" alt="Richena & Fonseca" style="height:50px;">
-    <h1 style="margin:0;color:#f5d27a;">Richena & Fonseca</h1>
+  <div class="logo-container">
+    <img src="logo.png" alt="logo">
+    <span>Richena & Fonseca</span>
   </div>
   <nav>
     <a href="#">Início</a>
@@ -56,16 +142,14 @@ footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1)
 </header>
 
 <section class="hero">
-  <img src="logo.png" alt="Logo" style="width:120px;margin-bottom:20px;opacity:0.9;">
+  <div class="hero-logo">
+    <img src="logo.png" alt="logo">
+  </div>
   <h2>BEM-VINDO(A)</h2>
   <p>Advocacia especializada para defender seus direitos com estratégia, ética e excelência.</p>
   <div class="cta">
     <a href="https://wa.me/5511974499862" class="whatsapp">Fale Conosco</a>
-  </div>
-  <div class="cta" style="margin-top:15px;">
-    <a href="https://www.instagram.com/richenafonseca/" target="_blank" class="whatsapp" style="background: transparent; border:1px solid #f5d27a; color:#f5d27a;">
-      Ver Instagram
-    </a>
+    <a href="https://www.instagram.com/richenafonseca/" target="_blank" class="instagram-btn">Instagram</a>
   </div>
 </section>
 
@@ -82,28 +166,14 @@ footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1)
 
 <section id="sobre" class="section">
   <h3>Sobre o Escritório</h3>
-  <p class="sobre">
+  <p>
   Nosso escritório atua de forma estratégica e comprometida na defesa dos direitos de nossos clientes,
   oferecendo soluções jurídicas eficientes, personalizadas e com atendimento humanizado.
   Excelência técnica aliada à proximidade com o cliente.
   </p>
 </section>
 
-<section id="contato" class="section">
-  <h3>Contato</h3>
-  <p>Atendimento rápido e direto:</p>
-  <div class="cta">
-    <a href="https://wa.me/5511974499862" class="whatsapp">WhatsApp</a>
-  </div>
-  <div class="social">
-    <p>
-      Instagram: 
-      <a href="https://www.instagram.com/richenafonseca/" target="_blank">
-        @richenafonseca
-      </a>
-    </p>
-  </div>
-</section>
+<a href="https://wa.me/5511974499862" class="float-whatsapp">💬</a>
 
 <footer>
   <p>© 2026 Richena & Fonseca - Todos os direitos reservados</p>
