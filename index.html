@@ -219,12 +219,31 @@ nav a:hover{opacity:.82}
   padding:28px;
 }
 .hero-logo-box{
-  min-height:420px;
+  min-height:340px;
   border-radius:18px;
   display:flex;
   align-items:center;
   justify-content:center;
+  position:relative;
+  overflow:hidden;
   background:radial-gradient(circle at center, rgba(212,175,55,.10), rgba(2,12,69,0) 62%);
+}
+.hero-logo-box::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(2,12,69,.12) 0%, rgba(2,12,69,.28) 100%);
+  pointer-events:none;
+}
+.hero-logo-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  transition:transform .6s ease;
+}
+.hero-logo-box:hover img{
+  transform:scale(1.04);
 }
 .hero-logo-box img{
   width:min(320px, 80%);
@@ -421,8 +440,8 @@ footer{
       </div>
       <div class="hero-card">
         <div class="hero-logo-box">
-          <img src="logo.png" alt="Richena & Fonseca Advocacia e Assessoria Jurídica">
-        </div>
+  <img src="hero-law.jpg" alt="Imagem jurídica" style="width:100%; height:100%; object-fit:cover; border-radius:18px;">
+</div>
       </div>
     </div>
   </section>
@@ -460,6 +479,14 @@ footer{
           <p>Atuação em família, sucessões, alimentos e divórcio, com condução estratégica e sensível em demandas patrimoniais e pessoais.</p>
           <a class="area-link" href="https://wa.me/5511974499862" target="_blank" rel="noopener noreferrer">Falar com especialista</a>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="imagem-destaque">
+    <div class="container">
+      <div style="border-radius:22px; overflow:hidden; border:1px solid rgba(212,175,55,.2);">
+        <img src="hero-law.jpg" alt="Imagem jurídica" style="width:100%; height:420px; object-fit:cover; display:block;">
       </div>
     </div>
   </section>
