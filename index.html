@@ -4,721 +4,311 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Richena & Fonseca Advocacia e Assessoria Jurídica</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#020c45;
-  --bg-soft:#04125a;
-  --panel:#081a63;
+  --bg-soft:#07134f;
+  --panel:#0a1657;
   --gold:#d4af37;
-  --gold-soft:#e6c86b;
+  --gold-soft:#e8d18a;
   --text:#f5f2e8;
   --muted:rgba(245,242,232,.78);
-  --line:rgba(212,175,55,.22);
-  --shadow:0 20px 60px rgba(0,0,0,.35);
+  --line:rgba(212,175,55,.20);
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:linear-gradient(180deg, #020c45 0%, #010833 100%);
+  background:var(--bg);
   color:var(--text);
 }
 a{color:inherit}
 .container{
-  width:min(1200px, 100%);
+  width:min(1120px, 100%);
   margin:0 auto;
-  padding-left:40px;
-  padding-right:40px;
+  padding:0 32px;
 }
-
 header{
   position:fixed;
   top:0;
   left:0;
   right:0;
   z-index:1000;
-  background:rgba(2,12,69,.92);
-  backdrop-filter:blur(10px);
+  background:rgba(2,12,69,.96);
   border-bottom:1px solid rgba(255,255,255,.05);
 }
 .header-inner{
-  min-height:82px;
-  display:flex;align-items:center;justify-content:space-between;gap:24px;
+  min-height:78px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:24px;
 }
-.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none;min-width:0}
-.logo-wrap img{width:48px;height:48px;border-radius:12px;object-fit:cover;display:block;box-shadow:0 10px 30px rgba(0,0,0,.22)}
-.brand{min-width:0}
-.brand-title{font-family:'Playfair Display',serif;color:var(--gold-soft);font-size:1.7rem;line-height:1.05;margin:0}
-.brand-subtitle{font-size:.82rem;color:rgba(245,247,251,.72);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-nav{display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:flex-end}
-nav a{text-decoration:none;color:var(--gold-soft);font-weight:500;font-size:.98rem;position:relative}
-nav a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold-soft);transition:.25s ease}
-nav a:hover::after{width:100%}
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  text-decoration:none;
+}
+.logo-wrap img{
+  width:44px;
+  height:44px;
+  object-fit:cover;
+  border-radius:10px;
+  display:block;
+}
+.brand-title{
+  margin:0;
+  font-family:'Cormorant Garamond',serif;
+  font-size:2rem;
+  line-height:.95;
+  color:var(--gold-soft);
+}
+.brand-subtitle{
+  margin-top:2px;
+  font-size:.82rem;
+  color:rgba(245,242,232,.74);
+}
+nav{
+  display:flex;
+  align-items:center;
+  gap:22px;
+}
+nav a{
+  text-decoration:none;
+  color:var(--gold-soft);
+  font-size:.98rem;
+  font-weight:500;
+}
+nav a:hover{opacity:.82}
 
 .hero{
-  padding:150px 0 88px;
-  min-height:100vh;
-  display:flex;align-items:center;
+  padding:146px 0 84px;
 }
 .hero-grid{
   display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:56px;
+  grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);
+  gap:36px;
   align-items:center;
 }
-.hero-copy small{
+.hero-copy small,
+.section-header small{
   display:inline-block;
+  margin-bottom:12px;
   color:var(--gold-soft);
-  letter-spacing:.14em;
   text-transform:uppercase;
-  margin-bottom:18px;
+  letter-spacing:.14em;
   font-weight:600;
+  font-size:.82rem;
+}
+.hero-copy h1,
+.section-header h2{
+  margin:0;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--text);
+  letter-spacing:-.01em;
 }
 .hero-copy h1{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(2.8rem, 6vw, 5rem);
-  line-height:.96;
-  margin:0 0 20px;
-  color:#f5efe0;
+  font-size:clamp(3rem, 6vw, 5rem);
+  line-height:.95;
+  max-width:720px;
 }
 .hero-copy p{
-  margin:0;
-  font-size:1.08rem;
-  line-height:1.8;
+  margin:20px 0 0;
+  max-width:640px;
   color:var(--muted);
-  max-width:680px;
+  line-height:1.8;
+  font-size:1.04rem;
 }
-.hero-actions{
+.hero-actions,
+.contact-actions{
   display:flex;
   flex-wrap:wrap;
-  gap:14px;
-  margin-top:34px;
+  gap:12px;
+  margin-top:28px;
 }
-.btn{
+.btn,
+.area-link{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  min-height:50px;
-  padding:0 22px;
+  min-height:48px;
+  padding:0 20px;
   border-radius:999px;
   text-decoration:none;
-  transition:.25s ease;
   font-weight:600;
-  border:1px solid transparent;
-  letter-spacing:.01em;
+  font-size:.96rem;
+  transition:.2s ease;
 }
-.btn-primary{background:var(--gold);color:var(--bg);box-shadow:none}
-.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 20px rgba(0,0,0,.18)}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.22)}
-.btn-secondary{border-color:rgba(212,175,55,.58);color:var(--gold-soft);background:transparent}
-.btn-secondary:hover{background:rgba(212,175,55,.08);transform:translateY(-1px)}
-.btn-secondary:hover{background:rgba(212,175,55,.08);transform:translateY(-2px)}
+.btn-primary{
+  background:var(--gold);
+  color:var(--bg);
+  border:1px solid var(--gold);
+}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-secondary,
+.area-link{
+  background:transparent;
+  color:var(--gold-soft);
+  border:1px solid rgba(212,175,55,.42);
+}
+.btn-secondary:hover,
+.area-link:hover{
+  background:rgba(212,175,55,.08);
+}
 .hero-card{
-  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.015));
   border:1px solid var(--line);
-  border-radius:32px;
-  padding:34px;
-  box-shadow:var(--shadow);
+  border-radius:24px;
+  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  padding:28px;
 }
 .hero-logo-box{
-  background:radial-gradient(circle at center, rgba(212,175,55,.12), rgba(2,12,69,0) 62%);
-  border-radius:28px;
-  min-height:420px;
-  display:flex;align-items:center;justify-content:center;
-  position:relative;overflow:hidden;
-}
-.hero-logo-box::before{
-  content:'';position:absolute;inset:22px;
-  border:1px solid rgba(212,175,55,.12);
-  border-radius:24px;
+  min-height:340px;
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at center, rgba(212,175,55,.10), rgba(2,12,69,0) 62%);
 }
 .hero-logo-box img{
-  width:min(300px, 70%);
-  max-width:100%;
+  width:min(220px, 66%);
   display:block;
-  filter:drop-shadow(0 22px 40px rgba(0,0,0,.26));
 }
 
 section{
   padding:72px 0;
 }
 .section-header{
-  max-width:980px;
-  width:100%;
-  margin:0 auto 18px auto;
-  text-align:left;
+  max-width:920px;
+  margin:0 0 22px;
 }
 .section-header h2{
-  margin:0 0 12px;
+  font-size:clamp(2.2rem, 4vw, 3.6rem);
+  line-height:1;
 }
 .section-header p{
-  margin:0;
-  max-width:780px;
+  margin:12px 0 0;
+  max-width:760px;
+  color:var(--muted);
+  line-height:1.8;
 }
-.section-header h2{
-  margin:0 0 10px;
-}
-.section-header p{
-  margin:0;
-}
-.section-header h2{
-  margin:0 0 10px;
-}
-.section-header p{
-  margin:0;
-}
-.section-header.section-left{
-  margin:0 0 40px;
-}
-.section-header small{
-  display:inline-block;color:var(--gold-soft);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:12px
-}
-.section-header h2{
-  margin:0 0 12px;font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);color:#f5efe0
-}
-.section-header p{margin:0;color:var(--muted);line-height:1.8}
 
 .areas-grid{
   display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:24px;
-  width:100%;
-  max-width:980px;
-  margin:0 auto;
+  grid-template-columns:repeat(2, minmax(0,1fr));
+  gap:18px;
+  max-width:920px;
+}
+.area-card,
+.about-panel,
+.contact-panel{
+  background:linear-gradient(180deg, rgba(255,255,255,.022), rgba(255,255,255,.012));
+  border:1px solid var(--line);
+  border-radius:20px;
 }
 .area-card{
-  background:linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.015));
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:28px;
-  box-shadow:0 10px 30px rgba(0,0,0,.14);
+  padding:24px;
   display:flex;
   flex-direction:column;
   min-height:100%;
-  width:100%;
 }
 .area-card h3{
-  margin:0 0 14px;
-  font-family:'Playfair Display',serif;
-  font-size:1.55rem;
+  margin:0 0 12px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;
   color:var(--gold-soft);
-  line-height:1.15;
+  line-height:1.02;
 }
 .area-card p{
-  margin:0 0 22px;
+  margin:0 0 20px;
   color:var(--muted);
   line-height:1.75;
   flex:1;
 }
-.area-link{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
-  color:var(--gold-soft);
-  font-weight:600;
-  padding:12px 18px;
-  border:1px solid rgba(212,175,55,.34);
-  border-radius:999px;
-  width:fit-content;
-  margin-top:auto;
-  transition:.25s ease;
-}
-.area-link:hover{background:rgba(212,175,55,.08);transform:translateY(-1px)}
-.area-link span{display:none}
-.area-link span{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(212,175,55,.45)}
-.area-link:hover span{transform:translateX(3px);transition:.25s ease}
 
-.about-wrap{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:18px;
-  width:100%;
-  max-width:980px;
-  margin:0 auto;
+.about-wrap,
+.contact-wrap{
+  max-width:920px;
 }
 .about-panel,
 .contact-panel{
-  width:100%;
-  max-width:980px;
-  margin:0 auto;
-  background:linear-gradient(180deg, rgba(255,255,255,.028), rgba(255,255,255,.015));
-  border:1px solid var(--line);
-  border-radius:22px;
-  padding:32px;
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
+  padding:28px;
 }
-.about-panel,.contact-panel{
-  background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
-  border:1px solid var(--line);
-  border-radius:28px;
-  padding:34px;
-  margin-top:20px;
+.about-panel p,
+.contact-panel p{
+  margin:0;
+  color:var(--muted);
+  line-height:1.85;
 }
-.about-panel,.contact-panel{
-  background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.02));
-  border:1px solid var(--line);
-  border-radius:28px;
-  padding:34px;
-}
-.about-panel p,.contact-panel p{margin:0;color:var(--muted);line-height:1.9}
-.contact-list{display:grid;gap:16px;margin-top:24px}
-.contact-item{
-  display:flex;flex-direction:column;gap:6px;padding:18px 20px;border:1px solid rgba(212,175,55,.12);border-radius:18px;background:rgba(255,255,255,.02)
-}
-.contact-item strong{color:#f5efe0;font-size:1rem}
-.contact-item a{text-decoration:none;color:var(--gold-soft);font-weight:500;word-break:break-word}
-.contact-item a:hover{text-decoration:underline}
-.contact-actions{
-  display:flex;
-  justify-content:flex-start;
-  gap:14px;
-  margin-top:4px;
-  flex-wrap:wrap;
-}
-.contact-mini-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.mini-btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:42px;padding:0 16px;border-radius:999px;
-  text-decoration:none;font-size:.92rem;font-weight:500;
-  border:1px solid rgba(212,175,55,.32);
-  color:var(--gold-soft);
-  background:rgba(255,255,255,.02);
-  transition:.25s ease;
-}
-.mini-btn:hover{background:rgba(212,175,55,.08);transform:translateY(-1px)}
 
 footer{
   border-top:1px solid rgba(255,255,255,.06);
-  padding:26px 0 34px;
+  padding:24px 0 32px;
 }
-.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center;color:rgba(245,247,251,.64);font-size:.95rem}
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  color:rgba(245,242,232,.64);
+  font-size:.94rem;
+}
 
 @media (max-width: 980px){
-  .container{
-    padding-left:24px;
-    padding-right:24px;
-  }
-  .header-inner{
-    min-height:auto;
-    padding:14px 0;
-    align-items:flex-start;
-    flex-direction:column;
-    gap:14px;
-  }
-  nav{
-    width:100%;
-    justify-content:flex-start;
-    gap:18px;
-  }
-  .hero{
-    min-height:auto;
-    padding:132px 0 72px;
-  }
+  .container{padding:0 24px}
   .hero-grid,
-  .areas-grid{
-    grid-template-columns:1fr;
-  }
-  .hero-grid{
-    gap:28px;
-  }
-  .hero-card{
-    order:-1;
-  }
-  .section-header,
-  .areas-grid,
-  .about-wrap,
-  .about-panel,
-  .contact-panel{
-    max-width:100%;
-  }
-}
-  .header-inner{
-    min-height:auto;
-    padding:14px 0;
-    align-items:flex-start;
-    flex-direction:column;
-    gap:14px;
-  }
-  nav{
-    width:100%;
-    justify-content:flex-start;
-    gap:18px;
-  }
-  .hero{
-    min-height:auto;
-    padding:132px 0 72px;
-  }
-  .hero-grid,
-  .areas-grid{
-    grid-template-columns:1fr;
-  }
-  .hero-grid{
-    gap:28px;
-  }
-  .hero-card{
-    order:-1;
-  }
-  .about-panel,
-  .contact-panel{
-    max-width:100%;
-  }
-}
-  .hero{padding-top:132px}
+  .areas-grid{grid-template-columns:1fr}
   .hero-card{order:-1}
-  .container{padding-left:28px;padding-right:28px}
-}
-  .hero{padding-top:132px}
-  .hero-card{order:-1}
-}
-  .hero{padding-top:132px}
-  .hero-card{order:-1}
+  .hero-logo-box{min-height:260px}
 }
 @media (max-width: 760px){
-  .container{
-    padding-left:18px;
-    padding-right:18px;
-  }
-  .logo-wrap{
+  .container{padding:0 18px}
+  .header-inner{
+    min-height:auto;
+    padding:14px 0;
+    flex-direction:column;
     align-items:flex-start;
-  }
-  .logo-wrap img{
-    width:42px;
-    height:42px;
-  }
-  .brand-title{
-    font-size:1.18rem;
-    line-height:1.1;
-  }
-  .brand-subtitle{
-    font-size:.74rem;
-    white-space:normal;
+    gap:12px;
   }
   nav{
     gap:14px;
+    width:100%;
     overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:4px;
+    padding-bottom:2px;
   }
-  nav a{
-    white-space:nowrap;
-    font-size:.94rem;
+  nav a{white-space:nowrap}
+  .brand-title{font-size:1.6rem}
+  .brand-subtitle{font-size:.74rem}
+  .hero{
+    padding:128px 0 64px;
   }
-  .hero-copy h1{
-    font-size:2.35rem;
-    line-height:1.02;
-  }
-  .hero-copy p{
-    font-size:1rem;
-    line-height:1.7;
-  }
+  .hero-copy h1{font-size:2.7rem}
+  .hero-copy p,
+  .section-header p,
+  .area-card p,
+  .about-panel p,
+  .contact-panel p{font-size:.98rem}
   .hero-actions,
   .contact-actions{
     flex-direction:column;
     align-items:stretch;
   }
   .btn,
-  .btn-primary,
-  .btn-secondary,
   .area-link{
     width:100%;
-    justify-content:center;
-    min-height:52px;
   }
-  .hero-card{
-    padding:16px;
-    border-radius:22px;
-  }
-  .hero-logo-box{
-    min-height:220px;
-    border-radius:20px;
-  }
-  .hero-logo-box::before{
-    inset:14px;
-    border-radius:16px;
-  }
-  .hero-logo-box img{
-    width:min(180px, 64%);
-  }
-  section{
-    padding:56px 0;
-  }
-  .section-header{
-    margin:0 0 16px 0;
-  }
-  .section-header h2{
-    font-size:2rem;
-    line-height:1.08;
-  }
-  .section-header p,
-  .about-panel p,
-  .contact-panel p,
-  .area-card p{
-    font-size:.98rem;
-    line-height:1.7;
-  }
+  section{padding:56px 0}
+  .section-header{margin-bottom:18px}
+  .section-header h2{font-size:2.35rem}
+  .hero-card,
   .area-card,
   .about-panel,
-  .contact-panel{
-    padding:22px;
-    border-radius:20px;
-  }
-  .area-card h3{
-    font-size:1.4rem;
-  }
+  .contact-panel{padding:22px}
   .footer-inner{
     flex-direction:column;
     align-items:flex-start;
-    gap:8px;
   }
-}
-  .logo-wrap{
-    align-items:flex-start;
-  }
-  .logo-wrap img{
-    width:42px;
-    height:42px;
-  }
-  .brand-title{
-    font-size:1.18rem;
-    line-height:1.1;
-  }
-  .brand-subtitle{
-    font-size:.74rem;
-    white-space:normal;
-  }
-  nav{
-    gap:14px;
-    overflow-x:auto;
-    flex-wrap:nowrap;
-    padding-bottom:4px;
-  }
-  nav a{
-    white-space:nowrap;
-    font-size:.94rem;
-  }
-  .hero-copy h1{
-    font-size:2.35rem;
-    line-height:1.02;
-  }
-  .hero-copy p{
-    font-size:1rem;
-    line-height:1.7;
-  }
-  .hero-actions{
-    flex-direction:column;
-    align-items:stretch;
-  }
-  .btn,
-  .btn-primary,
-  .btn-secondary{
-    width:100%;
-    min-height:52px;
-  }
-  .hero-card{
-    padding:16px;
-    border-radius:22px;
-  }
-  .hero-logo-box{
-    min-height:220px;
-    border-radius:20px;
-  }
-  .hero-logo-box::before{
-    inset:14px;
-    border-radius:16px;
-  }
-  .hero-logo-box img{
-    width:min(180px, 64%);
-  }
-  section{
-    padding:56px 0;
-  }
-  .section-header{
-    max-width:100%;
-    margin:0 0 18px 0;
-  }
-  .section-header h2{
-    font-size:2rem;
-    line-height:1.08;
-  }
-  .section-header p,
-  .about-panel p,
-  .contact-panel p,
-  .area-card p{
-    font-size:.98rem;
-    line-height:1.7;
-  }
-  .area-card{
-    padding:22px;
-    border-radius:20px;
-  }
-  .area-card h3{
-    font-size:1.45rem;
-  }
-  .about-wrap{
-    gap:14px;
-    margin-top:14px;
-  }
-  .about-panel,
-  .contact-panel{
-    max-width:100%;
-    padding:22px;
-    border-radius:20px;
-  }
-  .contact-actions{
-    width:100%;
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
-  }
-  .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-}
-  .header-inner{
-    min-height:auto;
-    align-items:flex-start;
-    padding:14px 0;
-    flex-direction:column;
-    gap:14px;
-  }
-  .logo-wrap{
-    align-items:flex-start;
-  }
-  .logo-wrap img{
-    width:42px;
-    height:42px;
-  }
-  .brand-title{
-    font-size:1.2rem;
-    line-height:1.1;
-  }
-  .brand-subtitle{
-    font-size:.74rem;
-    white-space:normal;
-  }
-  nav{
-    width:100%;
-    gap:16px;
-    justify-content:flex-start;
-    overflow-x:auto;
-    padding-bottom:4px;
-  }
-  nav a{
-    white-space:nowrap;
-    font-size:.95rem;
-  }
-  .hero{
-    padding:132px 0 56px;
-    min-height:auto;
-  }
-  .hero-grid{
-    grid-template-columns:1fr;
-    gap:24px;
-  }
-  .hero-copy h1{
-    font-size:2.35rem;
-    line-height:1.02;
-  }
-  .hero-copy p{
-    font-size:1rem;
-    line-height:1.7;
-  }
-  .hero-actions{
-    flex-direction:column;
-    align-items:stretch;
-    gap:12px;
-  }
-  .btn,
-  .btn-primary,
-  .btn-secondary{
-    width:100%;
-    min-height:52px;
-  }
-  .hero-card{
-    padding:16px;
-    border-radius:22px;
-  }
-  .hero-logo-box{
-    min-height:220px;
-    border-radius:20px;
-  }
-  .hero-logo-box::before{
-    inset:14px;
-    border-radius:16px;
-  }
-  .hero-logo-box img{
-    width:min(180px, 64%);
-  }
-  section{
-    padding:56px 0;
-  }
-  .section-header{
-    max-width:100%;
-    margin:0 0 18px 0;
-  }
-  .section-header h2{
-    font-size:2rem;
-    line-height:1.08;
-  }
-  .section-header p{
-    font-size:.98rem;
-    line-height:1.7;
-  }
-  .areas-grid{
-    grid-template-columns:1fr;
-    gap:16px;
-  }
-  .area-card{
-    padding:22px;
-    border-radius:20px;
-  }
-  .area-card h3{
-    font-size:1.45rem;
-  }
-  .area-card p{
-    font-size:.98rem;
-    line-height:1.7;
-  }
-  .about-wrap{
-    gap:14px;
-    margin-top:14px;
-  }
-  .about-panel,
-  .contact-panel{
-    max-width:100%;
-    padding:22px;
-    border-radius:20px;
-  }
-  .contact-actions{
-    width:100%;
-    flex-direction:column;
-    align-items:stretch;
-    gap:10px;
-  }
-  .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-}
-  .header-inner{min-height:76px;align-items:flex-start;padding:14px 0}
-  nav{gap:14px}
-  .brand-title{font-size:1.25rem}
-  .brand-subtitle{font-size:.75rem;white-space:normal}
-  .hero-copy h1{font-size:2.6rem}
-  .hero-card{padding:18px}
-  .hero-logo-box{min-height:260px}
-  section{padding:70px 0}
-  .about-panel,.contact-panel,.area-card{padding:24px}
-  .footer-inner{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
@@ -727,7 +317,7 @@ footer{
   <div class="container header-inner">
     <a href="#inicio" class="logo-wrap">
       <img src="logo.png" alt="Logo Richena & Fonseca">
-      <div class="brand">
+      <div>
         <p class="brand-title">Richena & Fonseca</p>
         <div class="brand-subtitle">Advocacia e Assessoria Jurídica</div>
       </div>
@@ -746,11 +336,11 @@ footer{
     <div class="container hero-grid">
       <div class="hero-copy">
         <small>Richena & Fonseca Advocacia e Assessoria Jurídica</small>
-        <h1>Defesa jurídica estratégica, com presença e confiança.</h1>
-        <p>Atuação técnica e personalizada em Direito Previdenciário, superendividamento, revisão de contratos bancários, Direito do Trabalho e Direito Civil, com foco em família, sucessões, alimentos e divórcio.</p>
+        <h1>Atuação jurídica sólida, clara e personalizada.</h1>
+        <p>Atendimento estratégico em Direito Previdenciário, superendividamento, revisão de contratos bancários, Direito do Trabalho e Direito Civil, com foco em família, sucessões, alimentos e divórcio.</p>
         <div class="hero-actions">
           <a href="#areas" class="btn btn-primary">Conheça nossas áreas</a>
-          <a href="#contato" class="btn btn-secondary">Fale conosco</a>
+          <a href="#contato" class="btn btn-secondary">Fale com o escritório</a>
         </div>
       </div>
       <div class="hero-card">
@@ -765,34 +355,34 @@ footer{
     <div class="container">
       <div class="section-header">
         <small>Áreas de atuação</small>
-        <h2>Atendimento jurídico com abordagem clara, estratégica e eficiente.</h2>
-        <p>Atendimento jurídico com organização, clareza e foco em soluções personalizadas para cada demanda apresentada ao escritório.</p>
+        <h2>Soluções jurídicas com organização, técnica e objetividade.</h2>
+        <p>Atuação voltada à análise cuidadosa de cada caso, com comunicação clara e condução estratégica em todas as etapas do atendimento.</p>
       </div>
       <div class="areas-grid">
-        <article class="area-card" id="previdenciario">
+        <article class="area-card">
           <h3>Direito Previdenciário e LOAS</h3>
           <p>Atuação em benefícios assistenciais e previdenciários, com orientação completa para requerimentos, análises documentais e defesa dos direitos do segurado.</p>
-          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20em%20Direito%20Previdenci%C3%A1rio%20e%20LOAS.">Solicitar atendimento <span>→</span></a>
+          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20em%20Direito%20Previdenci%C3%A1rio%20e%20LOAS.">Solicitar atendimento</a>
         </article>
-        <article class="area-card" id="superendividamento">
+        <article class="area-card">
           <h3>Superendividamento</h3>
           <p>Assessoria para reorganização de dívidas, preservação do mínimo existencial e construção de soluções jurídicas voltadas ao equilíbrio financeiro do cliente.</p>
-          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20em%20Superendividamento.">Falar sobre dívidas <span>→</span></a>
+          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20em%20Superendividamento.">Falar sobre dívidas</a>
         </article>
-        <article class="area-card" id="bancario">
+        <article class="area-card">
           <h3>Revisão de Contratos Bancários</h3>
           <p>Análise de cláusulas abusivas, juros excessivos, cobranças indevidas e revisão contratual para proteção dos interesses do consumidor.</p>
-          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20um%20contrato%20banc%C3%A1rio.">Analisar contrato <span>→</span></a>
+          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20analisar%20um%20contrato%20banc%C3%A1rio.">Analisar contrato</a>
         </article>
-        <article class="area-card" id="trabalhista">
+        <article class="area-card">
           <h3>Direito do Trabalho</h3>
           <p>Defesa técnica em verbas rescisórias, horas extras, reconhecimento de direitos e demais controvérsias decorrentes da relação de trabalho.</p>
-          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20na%20%C3%A1rea%20trabalhista.">Atendimento trabalhista <span>→</span></a>
+          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20na%20%C3%A1rea%20trabalhista.">Atendimento trabalhista</a>
         </article>
-        <article class="area-card" id="civil">
+        <article class="area-card">
           <h3>Direito Civil</h3>
           <p>Atuação em família, sucessões, alimentos e divórcio, com condução estratégica e sensível em demandas patrimoniais e pessoais.</p>
-          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20em%20Direito%20Civil.">Falar com especialista <span>→</span></a>
+          <a class="area-link" href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20em%20Direito%20Civil.">Falar com especialista</a>
         </article>
       </div>
     </div>
@@ -800,7 +390,7 @@ footer{
 
   <section id="sobre">
     <div class="container">
-      <div class="section-header section-left">
+      <div class="section-header">
         <small>O escritório</small>
         <h2>Compromisso com atendimento personalizado e excelência técnica.</h2>
       </div>
@@ -814,12 +404,12 @@ footer{
 
   <section id="contato">
     <div class="container">
-      <div class="section-header section-left">
+      <div class="section-header">
         <small>Contato</small>
         <h2>Fale com o escritório.</h2>
         <p>Canal direto para atendimento inicial, informações e direcionamento da sua demanda.</p>
       </div>
-      <div class="about-wrap">
+      <div class="contact-wrap">
         <div class="contact-panel">
           <div class="contact-actions">
             <a href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20gostaria%20de%20atendimento%20jur%C3%ADdico." class="btn btn-primary">Falar no WhatsApp</a>
