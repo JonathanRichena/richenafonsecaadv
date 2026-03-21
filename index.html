@@ -1,35 +1,110 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Richena & Fonseca</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Richena & Fonseca</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Poppins',sans-serif;background:#0b1c4d;color:#fff}
+
+header{display:flex;justify-content:space-between;align-items:center;padding:20px 40px}
+header h1{color:#f5d27a;margin:0}
+nav a{color:#f5d27a;margin-left:20px;text-decoration:none;font-weight:500}
+
+.hero{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;background:linear-gradient(180deg,#0b1c4d 0%,#122766 100%)}
+.hero h2{font-size:60px;color:#f5d27a;margin-bottom:10px;animation:fadeIn 1.5s ease}
+.hero p{font-size:20px;max-width:600px;opacity:0.9}
+
+.section{padding:80px 20px;text-align:center}
+.section h3{font-size:36px;color:#f5d27a;margin-bottom:40px}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;max-width:1100px;margin:0 auto}
+.card{background:#122766;padding:25px;border-radius:15px;transition:0.3s;border:1px solid rgba(255,255,255,0.1)}
+.card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,0.4)}
+
+.sobre{max-width:800px;margin:0 auto;line-height:1.6}
+
+.cta{margin-top:30px}
+.whatsapp{display:inline-block;background:#f5d27a;color:#0b1c4d;padding:15px 30px;border-radius:30px;text-decoration:none;font-weight:600;transition:0.3s}
+.whatsapp:hover{transform:scale(1.05)}
+
+.social{margin-top:20px}
+.social a{color:#fff;text-decoration:none;font-size:18px}
+.social a:hover{color:#f5d27a}
+
+footer{text-align:center;padding:20px;border-top:1px solid rgba(255,255,255,0.1);margin-top:40px}
+
+@keyframes fadeIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:768px){.hero h2{font-size:40px}}
+</style>
 </head>
 <body>
 
 <header>
   <h1>Richena & Fonseca</h1>
+  <nav>
+    <a href="#">Início</a>
+    <a href="#areas">Áreas</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
 </header>
 
 <section class="hero">
   <h2>BEM-VINDO(A)</h2>
-  <p>Advocacia especializada para defender seus direitos</p>
+  <p>Advocacia especializada para defender seus direitos com estratégia, ética e excelência.</p>
+  <div class="cta">
+    <a href="https://wa.me/5511974499862" class="whatsapp">Fale Conosco</a>
+  </div>
+  <div class="cta" style="margin-top:15px;">
+    <a href="https://www.instagram.com/richenafonseca/" target="_blank" class="whatsapp" style="background: transparent; border:1px solid #f5d27a; color:#f5d27a;">
+      Ver Instagram
+    </a>
+  </div>
 </section>
 
-<section class="areas">
+<section id="areas" class="section">
   <h3>Áreas de Atuação</h3>
+  <div class="cards">
+    <div class="card">Previdenciário (LOAS)</div>
+    <div class="card">Superendividamento</div>
+    <div class="card">Contratos Bancários</div>
+    <div class="card">Trabalhista</div>
+    <div class="card">Direito Civil<br>Família, sucessões, alimentos e divórcio</div>
+  </div>
+</section>
 
-  <div class="card">Previdenciário (LOAS)</div>
-  <div class="card">Superendividamento</div>
-  <div class="card">Contratos Bancários</div>
-  <div class="card">Trabalhista</div>
-  <div class="card">Direito Civil (Família, Sucessões, Alimentos e Divórcio)</div>
+<section id="sobre" class="section">
+  <h3>Sobre o Escritório</h3>
+  <p class="sobre">
+  Nosso escritório atua de forma estratégica e comprometida na defesa dos direitos de nossos clientes,
+  oferecendo soluções jurídicas eficientes, personalizadas e com atendimento humanizado.
+  Excelência técnica aliada à proximidade com o cliente.
+  </p>
+</section>
 
+<section id="contato" class="section">
+  <h3>Contato</h3>
+  <p>Atendimento rápido e direto:</p>
+  <div class="cta">
+    <a href="https://wa.me/5511974499862" class="whatsapp">WhatsApp</a>
+  </div>
+  <div class="social">
+    <p>
+      Instagram: 
+      <a href="https://www.instagram.com/richenafonseca/" target="_blank">
+        @richenafonseca
+      </a>
+    </p>
+  </div>
 </section>
 
 <footer>
-  <p>© 2026 Richena & Fonseca</p>
+  <p>© 2026 Richena & Fonseca - Todos os direitos reservados</p>
 </footer>
 
 </body>
 </html>
+
