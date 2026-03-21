@@ -211,6 +211,13 @@ section{
   gap:18px;
   max-width:920px;
   margin:0 auto;
+  justify-items:center;
+}
+
+/* Centraliza último item quando ímpar */
+.areas-grid .area-card:last-child:nth-child(odd){
+  grid-column:1 / -1;
+  max-width:420px;
 }
 .area-card,
 .about-panel,
@@ -446,5 +453,23 @@ footer{
     <div>Atuação estratégica com ética, clareza e excelência.</div>
   </div>
 </footer>
+<script>
+  document.querySelectorAll('nav a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+
+      const header = document.querySelector('header');
+      const headerOffset = header ? header.offsetHeight : 0;
+      const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerOffset - 12;
+
+      window.scrollTo({
+        top: targetPosition,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
 </body>
 </html>
