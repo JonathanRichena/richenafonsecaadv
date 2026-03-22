@@ -176,24 +176,45 @@ nav a:hover{
 .menu-toggle.is-open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 .hero{
-  padding:40px 0 84px; /* reduz espaço superior */
+  padding:56px 0 92px;
+  position:relative;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:auto 0 0 0;
+  height:180px;
+  background:linear-gradient(180deg, rgba(2,12,69,0), rgba(0,0,0,.12));
+  pointer-events:none;
 }
 .hero-grid{
   display:flex;
   flex-direction:column;
   align-items:center;
   text-align:center;
-  gap:28px;
+  gap:22px;
+  max-width:920px;
+  margin:0 auto;
 }
 .hero-copy small,
 .section-header small{
-  display:inline-block;
-  margin-bottom:12px;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
   color:var(--gold-soft);
   text-transform:uppercase;
   letter-spacing:.14em;
   font-weight:600;
   font-size:.82rem;
+}
+.hero-copy small::before,
+.hero-copy small::after{
+  content:"";
+  display:block;
+  width:34px;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(212,175,55,.75), transparent);
 }
 .hero-copy h1,
 .section-header h2{
@@ -203,25 +224,26 @@ nav a:hover{
   letter-spacing:-.01em;
 }
 .hero-copy h1{
-  font-size:clamp(3rem, 6vw, 5rem);
-  line-height:.95;
-  max-width:800px;
+  font-size:clamp(3.2rem, 6.2vw, 5.4rem);
+  line-height:.94;
+  max-width:860px;
   margin:0 auto;
+  text-wrap:balance;
 }
 .hero-copy p{
-  margin:20px auto 0;
-  max-width:680px;
+  margin:22px auto 0;
+  max-width:760px;
   color:var(--muted);
-  line-height:1.9;
-  font-size:1.04rem;
+  line-height:1.95;
+  font-size:1.06rem;
   text-align:center;
 }
 .hero-actions,
 .contact-actions{
   display:flex;
   justify-content:center;
-  gap:12px;
-  margin-top:20px;
+  gap:14px;
+  margin-top:28px;
   flex-wrap:wrap;
 }
 .btn,
@@ -473,8 +495,50 @@ footer{
     text-align:center;
   }
   .hero{
-    padding:128px 0 64px;
+    padding:132px 0 68px;
   }
+  .hero-copy small{
+    gap:8px;
+    font-size:.72rem;
+    letter-spacing:.12em;
+  }
+  .hero-copy small::before,
+  .hero-copy small::after{
+    width:18px;
+  }
+  .hero-copy h1{font-size:2.9rem}
+  .hero-copy p,
+  .section-header p,
+  .area-card p,
+  .about-panel p,
+  .contact-panel p{font-size:.98rem}
+  .hero-actions,
+  .contact-actions{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  .btn,
+  .area-link{
+    width:100%;
+  }
+  section{padding:56px 0}
+  .section-header{margin-bottom:18px}
+  .section-header h2{font-size:2.35rem}
+  .area-card,
+  .about-panel,
+  .contact-panel{padding:22px}
+  .footer-inner{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:8px;
+  }
+  .footer-inner div,
+  .footer-inner div:last-child{
+    margin-left:0;
+    text-align:left;
+    width:100%;
+  }
+}
   .hero-copy h1{font-size:2.7rem}
   .hero-copy p,
   .section-header p,
@@ -508,7 +572,7 @@ footer{
     width:100%;
   }
 }
-
+}
 
 /* ===== BOTÕES VIDRO + DOURADO (APENAS PC) ===== */
 @media (min-width: 761px){
