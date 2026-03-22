@@ -453,32 +453,72 @@ footer{
   .hero-logo-box{min-height:260px}
 }
 @media (max-width: 760px){
-  .container{padding:0 18px}
+  body{
+    padding-top:96px;
+  }
+
+  .container{
+    padding:0 18px;
+  }
+
   .header-inner{
     min-height:auto;
-    padding:14px 0;
+    padding:12px 0;
     flex-direction:row;
     align-items:center;
-    gap:12px;
+    gap:10px;
     position:relative;
   }
+
+  .logo-wrap{
+    gap:10px;
+    max-width:calc(100% - 58px);
+  }
+
+  .logo-wrap img,
+  .logo-rf{
+    height:72px !important;
+    filter: drop-shadow(0 0 10px rgba(212,175,55,0.6));
+    flex:0 0 auto;
+  }
+
+  .brand-title{
+    font-size:1.45rem;
+    line-height:.96;
+  }
+
+  .brand-subtitle{
+    font-size:.74rem;
+    text-align:left;
+    width:auto;
+    line-height:1.25;
+    margin-top:4px;
+  }
+
   .menu-toggle{
     display:inline-flex;
     margin-left:auto;
     flex:0 0 auto;
+    width:46px;
+    height:46px;
+    border-radius:14px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(212,175,55,.28);
+    box-shadow:0 8px 18px rgba(0,0,0,.16);
   }
+
   nav{
     position:absolute;
     top:calc(100% + 10px);
     right:0;
-    width:200px;
+    width:215px;
     display:flex;
     flex-direction:column;
     align-items:flex-start;
     gap:10px;
-    padding:14px 16px;
+    padding:16px;
     border:1px solid rgba(212,175,55,.18);
-    border-radius:16px;
+    border-radius:18px;
     background:rgba(2,12,69,.985);
     box-shadow:0 18px 40px rgba(0,0,0,.28);
     opacity:0;
@@ -488,72 +528,129 @@ footer{
     transition:opacity .28s ease, transform .28s ease, visibility .28s ease;
     z-index:1001;
   }
+
   nav.is-open{
     opacity:1;
     visibility:visible;
     pointer-events:auto;
     transform:translateX(0);
   }
+
   nav a{
     white-space:nowrap;
-    font-size:.98rem;
-    padding:4px 0;
+    font-size:1rem;
+    padding:5px 0;
   }
-  .logo-wrap img,
-  .logo-rf{
-    height:72px !important;
-    filter: drop-shadow(0 0 10px rgba(212,175,55,0.6));
-  }
-  .brand-title{font-size:1.6rem}
-  .brand-subtitle{
-    font-size:.74rem;
-    text-align:center;
-  }
+
   .hero{
-    padding:132px 0 68px;
+    padding:34px 0 58px;
   }
+
+  .hero-grid{
+    gap:18px;
+    max-width:100%;
+  }
+
   .hero-copy small{
     gap:8px;
-    font-size:.72rem;
+    font-size:.7rem;
     letter-spacing:.12em;
+    margin-bottom:12px;
   }
+
   .hero-copy small::before,
   .hero-copy small::after{
     width:18px;
   }
-  .hero-copy h1{font-size:2.9rem}
-  .hero-copy p,
-  .section-header p,
-  .area-card p,
-  .about-panel p,
-  .contact-panel p{font-size:.98rem}
+
+  .hero-copy h1{
+    font-size:2.55rem;
+    line-height:.98;
+    max-width:100%;
+  }
+
+  .hero-copy p{
+    font-size:.98rem;
+    line-height:1.78;
+    max-width:100%;
+    margin-top:16px;
+  }
+
   .hero-actions,
   .contact-actions{
     flex-direction:column;
     align-items:stretch;
+    gap:12px;
+    margin-top:24px;
   }
+
   .btn,
   .area-link{
     width:100%;
+    min-height:54px;
+    font-size:1rem;
+    border-radius:999px;
   }
-  section{padding:56px 0}
-  .section-header{margin-bottom:18px}
-  .section-header h2{font-size:2.35rem}
+
+  section{
+    padding:54px 0;
+  }
+
+  .section-header{
+    margin-bottom:18px;
+  }
+
+  .section-header h2{
+    font-size:2.15rem;
+    line-height:1.02;
+  }
+
+  .section-header p,
+  .area-card p,
+  .about-panel p,
+  .contact-panel p{
+    font-size:.98rem;
+    line-height:1.82;
+  }
+
+  .areas-grid{
+    gap:14px;
+  }
+
   .area-card,
   .about-panel,
-  .contact-panel{padding:22px}
+  .contact-panel{
+    padding:22px;
+    border-radius:22px;
+  }
+
+  .area-card h3{
+    font-size:1.55rem;
+    margin-bottom:10px;
+  }
+
+  .contact-panel{
+    padding-bottom:18px;
+  }
+
   .footer-inner{
     flex-direction:column;
     align-items:flex-start;
     gap:8px;
   }
+
   .footer-inner div,
   .footer-inner div:last-child{
     margin-left:0;
     text-align:left;
     width:100%;
   }
+
+  .mobile-cta-bar{
+    display:flex;
+  }
 }
+
   .hero-copy h1{font-size:2.7rem}
   .hero-copy p,
   .section-header p,
@@ -1081,6 +1178,32 @@ section + section{
   }
 }
 
+
+.mobile-cta-bar{
+  display:none;
+  position:fixed;
+  left:14px;
+  right:14px;
+  bottom:14px;
+  z-index:1200;
+  pointer-events:none;
+}
+.mobile-cta-bar a{
+  pointer-events:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:54px;
+  width:100%;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:700;
+  letter-spacing:.01em;
+  background:linear-gradient(180deg, rgba(212,175,55,.98), rgba(212,175,55,.84));
+  color:#06114d;
+  box-shadow:0 14px 30px rgba(0,0,0,.24), 0 0 18px rgba(212,175,55,.22);
+}
+
 </style>
 </head>
 <body>
@@ -1302,5 +1425,8 @@ section + section{
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 </script>
+<div class="mobile-cta-bar">
+  <a href="https://wa.me/5511974499862?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es%20sobre%20atendimento%20jur%C3%ADdico." target="_blank" rel="noopener noreferrer">Falar no WhatsApp</a>
+</div>
 </body>
 </html>
