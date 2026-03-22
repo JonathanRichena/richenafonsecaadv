@@ -67,11 +67,11 @@ header{
   object-fit:contain;
   display:block;
 
-  /* brilho dourado premium */
+  /* brilho dourado intenso e elegante */
   filter:
-    drop-shadow(0 0 6px rgba(212,175,55,0.6))
-    drop-shadow(0 0 14px rgba(212,175,55,0.45))
-    drop-shadow(0 0 28px rgba(212,175,55,0.25));
+    drop-shadow(0 0 8px rgba(212,175,55,0.7))
+    drop-shadow(0 0 18px rgba(212,175,55,0.55))
+    drop-shadow(0 0 36px rgba(212,175,55,0.35));
 
   transition:all .35s ease;
 }
@@ -94,11 +94,13 @@ header{
   font-family:'Cormorant Garamond',serif;
   font-size:2.1rem;
   line-height:1;
-  background: linear-gradient(180deg, #f5e3a1 0%, #d4af37 45%, #b8962e 100%);
+  background: linear-gradient(180deg, #f8e8ad 0%, #d4af37 45%, #b8962e 100%);
   -webkit-background-clip:text;
   background-clip:text;
   -webkit-text-fill-color:transparent;
-  text-shadow:0 0 8px rgba(212,175,55,.2);
+  text-shadow:
+    0 0 6px rgba(212,175,55,.28),
+    0 0 14px rgba(212,175,55,.18);
 }
 .brand-subtitle{
   margin-top:6px;
@@ -456,11 +458,6 @@ footer{
     font-size:.74rem;
     text-align:center;
   }
-}
-  .brand-subtitle{
-    font-size:.74rem;
-    text-align:center;
-  }
   .hero{
     padding:128px 0 64px;
   }
@@ -488,135 +485,6 @@ footer{
   .footer-inner{
     flex-direction:column;
     align-items:flex-start;
-  }
-}
-  .brand-title{font-size:1.6rem}
-  .brand-subtitle{font-size:.74rem}
-  .hero{
-    padding:128px 0 64px;
-  }
-  .hero-copy h1{font-size:2.7rem}
-  .hero-copy p,
-  .section-header p,
-  .area-card p,
-  .about-panel p,
-  .contact-panel p{font-size:.98rem}
-  .hero-actions,
-  .contact-actions{
-    flex-direction:column;
-    align-items:stretch;
-  }
-  .btn,
-  .area-link{
-    width:100%;
-  }
-  section{padding:56px 0}
-  .section-header{margin-bottom:18px}
-  .section-header h2{font-size:2.35rem}
-  .area-card,
-  .about-panel,
-  .contact-panel{padding:22px}
-  .footer-inner{
-    flex-direction:column;
-    align-items:flex-start;
-  }
-}
-
-
-/* ===== HOVER ELEGANTE APENAS PARA COMPUTADOR ===== */
-@media (min-width: 761px){
-  .btn,
-  .area-link{
-    position:relative;
-    overflow:hidden;
-    transition: all .25s ease;
-  }
-
-  .btn-primary:hover{
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 10px 24px rgba(212,175,55,.25);
-  }
-
-  .btn-secondary:hover,
-  .area-link:hover{
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(212,175,55,.18);
-    border-color: rgba(212,175,55,.7);
-    background: rgba(212,175,55,.12);
-  }
-
-  /* efeito de brilho passando */
-  .btn::after,
-  .area-link::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-75%;
-    width:50%;
-    height:100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,.25), transparent);
-    transform: skewX(-20deg);
-    transition: .5s;
-  }
-
-  .btn:hover::after,
-  .area-link:hover::after{
-    left:125%;
-  }
-}
-
-/* ===== AJUSTES APENAS PARA COMPUTADOR ===== */
-@media (min-width: 761px){
-  .footer-inner{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    justify-content:flex-start;
-    gap:10px;
-  }
-
-  .footer-inner div:last-child{
-    margin-left:0;
-    text-align:left;
-  }
-
-  .btn,
-  .area-link{
-    position:relative;
-    overflow:hidden;
-    transition:transform .28s ease, box-shadow .28s ease, background .28s ease, border-color .28s ease;
-  }
-
-  .btn-primary:hover{
-    transform:translateY(-3px) !important;
-    box-shadow:0 12px 28px rgba(212,175,55,.28);
-  }
-
-  .btn-secondary:hover,
-  .area-link:hover{
-    transform:translateY(-3px) !important;
-    box-shadow:0 10px 24px rgba(212,175,55,.18);
-    border-color:rgba(212,175,55,.72);
-    background:rgba(212,175,55,.12);
-  }
-
-  .btn::after,
-  .area-link::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:-80%;
-    width:42%;
-    height:100%;
-    background:linear-gradient(120deg, transparent, rgba(255,255,255,.24), transparent);
-    transform:skewX(-20deg);
-    transition:left .55s ease;
-    pointer-events:none;
-  }
-
-  .btn:hover::after,
-  .area-link:hover::after{
-    left:130%;
   }
 }
 
