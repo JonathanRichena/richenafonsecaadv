@@ -21,9 +21,13 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background:var(--bg);
+  /* fundo elegante sem brilho dourado */
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255,255,255,.04), transparent 22%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,.03), transparent 18%),
+    linear-gradient(180deg, #06114d 0%, #020c45 45%, #020a39 100%);
   color:var(--text);
-  padding-top:110px; /* evita sobreposição do header */
+  padding-top:110px;
 }
 a{color:inherit}
 .container{
@@ -37,8 +41,9 @@ header{
   left:0;
   right:0;
   z-index:1000;
-  background:rgba(2,12,69,.96);
+  background:linear-gradient(180deg, rgba(6,17,77,.96), rgba(2,12,69,.94));
   border-bottom:1px solid rgba(255,255,255,.05);
+  box-shadow:0 10px 30px rgba(0,0,0,.18);
 }
 .header-inner{
   min-height:150px; /* acompanha logo maior */
@@ -332,11 +337,13 @@ section{
 .about-panel,
 .contact-panel{
   padding:28px;
-  text-align:center;
-  align-items:center;
+  background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+  border:1px solid rgba(212,175,55,.14);
+  border-radius:22px;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 .area-card{
-  background:linear-gradient(180deg, rgba(255,255,255,.022), rgba(255,255,255,.012));
+  background:linear-gradient(180deg, rgba(255,255,255,.032), rgba(255,255,255,.012));
   border:1px solid var(--line);
   border-radius:20px;
   padding:24px;
@@ -345,6 +352,7 @@ section{
   min-height:100%;
   align-items:center;
   text-align:center;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);
 }
 .area-card h3{
   margin:0 0 12px;
@@ -381,6 +389,7 @@ section{
 footer{
   border-top:1px solid rgba(255,255,255,.06);
   padding:24px 0 32px;
+  background:linear-gradient(180deg, rgba(255,255,255,.01), rgba(0,0,0,.08));
 }
 .footer-inner{
   display:flex;
