@@ -62,16 +62,26 @@ header{
   text-decoration:none !important;
 }
 .logo-wrap img{
-  height:150px; /* ainda maior no desktop */
+  height:150px;
   width:auto;
   object-fit:contain;
   display:block;
-  filter: drop-shadow(0 0 12px rgba(212,175,55,0.5));
-  transition:all .3s ease;
+
+  /* brilho dourado premium */
+  filter:
+    drop-shadow(0 0 6px rgba(212,175,55,0.6))
+    drop-shadow(0 0 14px rgba(212,175,55,0.45))
+    drop-shadow(0 0 28px rgba(212,175,55,0.25));
+
+  transition:all .35s ease;
 }
 .logo-wrap img:hover{
-  filter: drop-shadow(0 0 22px rgba(212,175,55,0.8));
-  transform:scale(1.06);
+  filter:
+    drop-shadow(0 0 10px rgba(212,175,55,0.9))
+    drop-shadow(0 0 24px rgba(212,175,55,0.7))
+    drop-shadow(0 0 40px rgba(212,175,55,0.4));
+
+  transform:scale(1.07);
 }
 .logo-rf{
   width:auto;
@@ -373,9 +383,14 @@ footer{
 .footer-inner{
   display:flex;
   justify-content:space-between;
+  align-items:center;
   gap:16px;
   color:rgba(245,242,232,.64);
   font-size:.94rem;
+}
+.footer-inner div:last-child{
+  margin-left:auto;
+  text-align:right;
 }
 
 @media (max-width: 980px){
@@ -507,6 +522,103 @@ footer{
   }
 }
 
+
+/* ===== HOVER ELEGANTE APENAS PARA COMPUTADOR ===== */
+@media (min-width: 761px){
+  .btn,
+  .area-link{
+    position:relative;
+    overflow:hidden;
+    transition: all .25s ease;
+  }
+
+  .btn-primary:hover{
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 24px rgba(212,175,55,.25);
+  }
+
+  .btn-secondary:hover,
+  .area-link:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(212,175,55,.18);
+    border-color: rgba(212,175,55,.7);
+    background: rgba(212,175,55,.12);
+  }
+
+  /* efeito de brilho passando */
+  .btn::after,
+  .area-link::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-75%;
+    width:50%;
+    height:100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,.25), transparent);
+    transform: skewX(-20deg);
+    transition: .5s;
+  }
+
+  .btn:hover::after,
+  .area-link:hover::after{
+    left:125%;
+  }
+}
+
+/* ===== AJUSTES APENAS PARA COMPUTADOR ===== */
+@media (min-width: 761px){
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    gap:10px;
+  }
+
+  .footer-inner div:last-child{
+    margin-left:0;
+    text-align:left;
+  }
+
+  .btn,
+  .area-link{
+    position:relative;
+    overflow:hidden;
+    transition:transform .28s ease, box-shadow .28s ease, background .28s ease, border-color .28s ease;
+  }
+
+  .btn-primary:hover{
+    transform:translateY(-3px) !important;
+    box-shadow:0 12px 28px rgba(212,175,55,.28);
+  }
+
+  .btn-secondary:hover,
+  .area-link:hover{
+    transform:translateY(-3px) !important;
+    box-shadow:0 10px 24px rgba(212,175,55,.18);
+    border-color:rgba(212,175,55,.72);
+    background:rgba(212,175,55,.12);
+  }
+
+  .btn::after,
+  .area-link::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-80%;
+    width:42%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.24), transparent);
+    transform:skewX(-20deg);
+    transition:left .55s ease;
+    pointer-events:none;
+  }
+
+  .btn:hover::after,
+  .area-link:hover::after{
+    left:130%;
+  }
+}
 
 /* IMAGEM DESTAQUE */
 .imagem-destaque{
