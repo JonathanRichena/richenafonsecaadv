@@ -485,8 +485,14 @@ footer{
   .footer-inner{
     flex-direction:column;
     align-items:flex-start;
+    gap:6px;
+  }
+  .footer-inner div{
+    text-align:left;
+    margin:0;
   }
 }
+
 
 /* ===== BOTÕES VIDRO + DOURADO (APENAS PC) ===== */
 @media (min-width: 761px){
@@ -580,6 +586,70 @@ footer{
   pointer-events:none;
 }
 
+
+/* ===== BOTÕES ELEGANTES SOMENTE NO PC ===== */
+@media (min-width: 761px){
+  .btn,
+  .area-link{
+    position:relative;
+    overflow:hidden;
+    transition:
+      transform .25s ease,
+      box-shadow .25s ease,
+      background .25s ease,
+      border-color .25s ease;
+  }
+
+  .btn-primary{
+    background:linear-gradient(180deg, rgba(212,175,55,.96), rgba(212,175,55,.82));
+    border:1px solid rgba(212,175,55,.92);
+    box-shadow:0 6px 18px rgba(0,0,0,.16);
+  }
+
+  .btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:
+      0 14px 30px rgba(0,0,0,.22),
+      0 0 22px rgba(212,175,55,.28);
+  }
+
+  .btn-secondary,
+  .area-link{
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(212,175,55,.35);
+    box-shadow:0 6px 18px rgba(0,0,0,.14);
+  }
+
+  .btn-secondary:hover,
+  .area-link:hover{
+    transform:translateY(-3px);
+    background:rgba(212,175,55,.10);
+    border-color:rgba(212,175,55,.72);
+    box-shadow:
+      0 12px 24px rgba(0,0,0,.18),
+      0 0 16px rgba(212,175,55,.18);
+  }
+
+  .btn::after,
+  .area-link::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-85%;
+    width:42%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.24), transparent);
+    transform:skewX(-20deg);
+    transition:left .6s ease;
+    pointer-events:none;
+  }
+
+  .btn:hover::after,
+  .area-link:hover::after{
+    left:130%;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -620,8 +690,7 @@ footer{
       </div>
       
       </div>
-    </div>
-  </section>
+    </section>
 
   <section id="areas">
     <div class="container">
