@@ -419,10 +419,17 @@ footer{
 .footer-inner{
   display:flex;
   justify-content:space-between;
-  align-items:center;
+  align-items:flex-start;
   gap:16px;
-  color:rgba(245,242,232,.64);
-  font-size:.94rem;
+}
+
+.footer-inner div:first-child{
+  text-align:left;
+}
+
+.footer-inner div:last-child{
+  text-align:right;
+  margin-left:auto;
 }
 .footer-inner div:last-child{
   margin-left:auto;
