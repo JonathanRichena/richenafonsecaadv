@@ -79,6 +79,19 @@ header{
     drop-shadow(0 0 18px rgba(212,175,55,0.55))
     drop-shadow(0 0 36px rgba(212,175,55,0.35));
   transition:all .35s ease;
+
+  /* efeito de entrada */
+  opacity:0;
+  transform:scale(0.96);
+}
+
+.logo-wrap img.logo-loaded{
+  opacity:1;
+  transform:scale(1);
+  transition:
+    opacity .8s ease,
+    transform .8s ease,
+    filter .8s ease;
 }
 .logo-wrap img:hover{
   filter:
@@ -871,6 +884,14 @@ footer{
   } else {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
+
+  // efeito de entrada do logo
+  window.addEventListener('load', () => {
+    const logo = document.querySelector('.logo-wrap img');
+    if (logo) {
+      logo.classList.add('logo-loaded');
+    }
+  });
 </script>
 </body>
 </html>
