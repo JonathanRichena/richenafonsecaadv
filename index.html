@@ -579,9 +579,50 @@ footer{
 
 /* ===== BOTÕES VIDRO + DOURADO (APENAS PC) ===== */
 @media (min-width: 761px){
-  .hero{
-    padding:56px 0 92px;
+  .contact-actions{
+    display:flex !important;
+    flex-direction:row !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:16px !important;
+    flex-wrap:wrap !important;
   }
+
+  .contact-actions .btn{
+    width:auto !important;
+    min-width:260px !important;
+    flex:0 0 auto !important;
+  }
+
+  .hero-actions .btn{
+    width:auto !important;
+    min-width:260px !important;
+    flex:0 0 auto !important;
+  }
+
+  .area-link{
+    width:auto !important;
+    flex:0 0 auto !important;
+  }
+
+  .contact-panel{
+    max-width:920px;
+    margin:0 auto;
+  }
+
+  /* CORREÇÃO RODAPÉ PC */
+  .footer-inner{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+  }
+
+  .footer-inner div:last-child{
+    margin-left:0 !important;
+    text-align:left !important;
+  }
+}
 
   .hero-grid{
     max-width:920px;
