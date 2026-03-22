@@ -846,6 +846,88 @@ section + section{
   transform:translateY(0);
 }
 
+
+/* ===== CORREÇÕES E REFINO APENAS PARA PC ===== */
+@media (min-width: 761px){
+  .hero{
+    padding:56px 0 92px;
+  }
+
+  .hero-grid{
+    max-width:920px;
+    margin:0 auto;
+    gap:22px;
+  }
+
+  .hero-copy h1{
+    font-size:clamp(3.1rem, 5.4vw, 4.6rem);
+    line-height:1.02;
+    max-width:980px;
+  }
+
+  .hero-copy p{
+    max-width:860px;
+    font-size:1rem;
+    line-height:1.8;
+  }
+
+  .hero-actions{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:28px;
+  }
+
+  .hero-actions .btn,
+  .contact-actions .btn,
+  .area-link{
+    width:auto !important;
+    min-width:260px;
+  }
+
+  .btn{
+    min-height:50px;
+    padding:0 28px;
+  }
+
+  .btn-primary,
+  .btn-secondary{
+    border-radius:999px;
+  }
+
+  .footer-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:16px;
+  }
+
+  .footer-inner div:last-child{
+    margin-left:auto;
+    text-align:right;
+  }
+
+  body{
+    background-color:#020c45;
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(255,255,255,.028), transparent 24%),
+      radial-gradient(circle at 82% 18%, rgba(255,255,255,.018), transparent 20%),
+      linear-gradient(180deg, #081451 0%, #051246 34%, #030f42 62%, #020c45 100%);
+    background-repeat:no-repeat;
+  }
+
+  section::before{
+    background:linear-gradient(180deg, rgba(255,255,255,.006), rgba(0,0,0,.04));
+  }
+
+  .hero::after{
+    background:radial-gradient(circle at center, rgba(255,255,255,.014), transparent 64%);
+  }
+}
+
 </style>
 </head>
 <body>
