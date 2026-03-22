@@ -369,16 +369,26 @@ section{
   color:var(--text);
 }
 #sobre .about-panel{
-  margin:28px auto 0;
-  padding:36px 34px;
-  max-width:860px;
-  background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012));
-  border:1px solid rgba(212,175,55,.18);
-  border-radius:26px;
-  box-shadow:
-    0 22px 50px rgba(0,0,0,.22),
-    inset 0 1px 0 rgba(255,255,255,.04);
+  margin:20px auto 0;
+  padding:0;
+  max-width:820px;
+  background:none;
+  border:none;
+  box-shadow:none;
   text-align:center;
+}
+
+#sobre .about-panel p{
+  max-width:820px;
+  margin:0 auto 14px;
+  text-align:center;
+  font-size:1.02rem;
+  line-height:1.9;
+  color:var(--text);
+}
+
+#sobre .about-panel p:last-child{
+  margin-bottom:0;
 }
 
 #sobre .about-panel p{
@@ -595,6 +605,42 @@ footer{
   opacity:1;
   transform:translateY(0);
 }
+
+/* destaque elegante para nomes dos advogados */
+#sobre .adv-name,
+#sobre .adv-oab{
+  font-weight:600;
+  background:linear-gradient(180deg, #f8e8ad 0%, #d4af37 45%, #b8962e 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+#sobre .about-panel p{
+  color:var(--text);
+  text-shadow:none;
+}
+
+#sobre .section-header p{
+  text-align:center;
+  max-width:820px;
+  margin:18px auto 0;
+}
+
+#sobre .adv-oab{
+  font-weight:600;
+  background:linear-gradient(180deg, #f8e8ad 0%, #d4af37 45%, #b8962e 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+@media (max-width: 760px){
+  #sobre .adv-name{
+    text-shadow:none;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -678,11 +724,12 @@ footer{
       <div class="section-header">
         <small>Sobre o escritório</small>
         <h2>Atendimento jurídico com estratégia e clareza.</h2>
-        <p>O escritório é composto pelos advogados Dr. Jonathan Frederick Richena, OAB/SP 544.387, e Dra. Rafaella Maira Fonseca Pereira, OAB/SP 544.390, que atuam de forma estratégica e comprometida na defesa dos interesses de seus clientes, com foco na entrega de soluções jurídicas eficientes, personalizadas e tecnicamente qualificadas.
-
-A atuação é orientada à obtenção de resultados com segurança jurídica, por meio de análise criteriosa, condução estratégica e comunicação clara em todas as etapas da demanda.
-
-O escritório possui atuação especializada em benefícios previdenciários, Direito do Consumidor, superendividamento e Direito do Trabalho, assegurando acompanhamento próximo e tratamento individualizado a cada caso, com elevado padrão técnico e profissional.</p>
+        <p>O escritório é composto pelos advogados <span class="adv-name">Dr. Jonathan Frederick Richena</span>, <span class="adv-oab">OAB/SP 544.387</span>, e <span class="adv-name">Dra. Rafaella Maira Fonseca Pereira</span>, <span class="adv-oab">OAB/SP 544.390</span>, que atuam de forma estratégica e comprometida na defesa dos interesses de seus clientes, com foco em soluções jurídicas seguras, eficientes e personalizadas.</p>
+      </div>
+      <div class="about-wrap">
+        <div class="about-panel">
+          <p>Ambos possuem atuação especializada em benefícios previdenciários, com destaque para o Benefício de Prestação Continuada (LOAS) e demais benefícios do INSS, além de experiência em revisão de contratos bancários e demandas relacionadas ao superendividamento.</p>
+          <p>O escritório também atua nas áreas de Direito do Consumidor, Direito do Trabalho e Direito Civil, com ênfase em família e sucessões, incluindo divórcio e inventário, sempre com condução técnica, atendimento próximo e análise individualizada de cada caso.</p>
         </div>
       </div>
     </div>
