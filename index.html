@@ -63,7 +63,6 @@ a{color:inherit}
   padding:0 32px;
 }
 header{
-  
   position:fixed;
   top:0;
   left:0;
@@ -88,7 +87,6 @@ header.scrolled{
   backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
 }
-
 header::after{
   content:"";
   position:absolute;
@@ -104,20 +102,6 @@ header::after{
   );
   pointer-events:none;
 }
-header.scrolled{
-  /* fica mais sólido e elegante */
-  background:linear-gradient(
-    180deg,
-    rgba(4,16,66,0.96) 0%,
-    rgba(4,16,66,0.90) 100%
-  );
-
-  border-bottom:1px solid rgba(255,255,255,.06);
-
-  box-shadow:0 10px 28px rgba(0,0,0,.22);
-
-  }
-
 .header-inner{
   min-height:150px;
   display:flex;
@@ -618,28 +602,23 @@ footer{
   .footer-inner{gap:8px}
   .footer-inner div,
   .footer-inner div:last-child{margin-left:0; text-align:left; width:100%;}
-}
-@media (min-width: 761px){
-  body{
-     header{
-    background:rgba(5,18,74,.42);
-    border-bottom:1px solid rgba(255,255,255,.03);
+  header{
+    background:rgba(5,18,74,.82);
+    border-bottom:1px solid rgba(255,255,255,.035);
     box-shadow:none;
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+  }
+  header.scrolled{
+    background:rgba(3,13,52,.94);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
     backdrop-filter:blur(8px);
     -webkit-backdrop-filter:blur(8px);
   }
-
-  header.scrolled{
-    background:rgba(3,13,52,.82);
-    border-bottom:1px solid rgba(255,255,255,.05);
-    box-shadow:0 12px 28px rgba(0,0,0,.22);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-  }
-
-  .header-inner{
-    min-height:150px;
-  }
+}
+@media (min-width: 761px){
+  body{
     background-color:#061855;
     background-image:url('bg-4k-dark.png');
     background-repeat:no-repeat;
@@ -649,6 +628,23 @@ footer{
   }
   body::before{
     display:none;
+  }
+  header{
+    background:rgba(5,18,74,.42);
+    border-bottom:1px solid rgba(255,255,255,.03);
+    box-shadow:none;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+  header.scrolled{
+    background:rgba(3,13,52,.82);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    box-shadow:0 12px 28px rgba(0,0,0,.22);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+  .header-inner{
+    min-height:150px;
   }
   .contact-actions{
     display:flex !important;
@@ -938,31 +934,33 @@ footer{
   } else {
     bindSmoothScroll();
   }
-document.addEventListener("DOMContentLoaded", function () {
 
-  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
-    link.addEventListener("click", () => {
-      if (typeof gtag !== "undefined") {
-        gtag('event', 'click_whatsapp', {
-          event_category: 'contato',
-          event_label: 'WhatsApp'
-        });
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+
+    document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+      link.addEventListener("click", () => {
+        if (typeof gtag !== "undefined") {
+          gtag('event', 'click_whatsapp', {
+            event_category: 'contato',
+            event_label: 'WhatsApp'
+          });
+        }
+      });
     });
+
+    document.querySelectorAll('a[href*="instagram"]').forEach(link => {
+      link.addEventListener("click", () => {
+        if (typeof gtag !== "undefined") {
+          gtag('event', 'click_instagram', {
+            event_category: 'contato',
+            event_label: 'Instagram'
+          });
+        }
+      });
+    });
+
   });
 
-  document.querySelectorAll('a[href*="instagram"]').forEach(link => {
-    link.addEventListener("click", () => {
-      if (typeof gtag !== "undefined") {
-        gtag('event', 'click_instagram', {
-          event_category: 'contato',
-          event_label: 'Instagram'
-        });
-      }
-    });
-  });
-
-});
   const menuToggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('#menu-principal');
 
@@ -1013,30 +1011,11 @@ document.addEventListener("DOMContentLoaded", function () {
     revealItems.forEach((item) => item.classList.add('is-visible'));
   }
 
-  window.addEventListener('load', () => {
-    const logo = document.querySelector('.logo-wrap img');
-    if (logo) {
-      logo.classList.add('logo-loaded');
-    }
-  });
-
-  const header = document.querySelector('header');
-
-function handleScrollHeader(){
-  if(window.scrollY > 30){
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  }
-}
-
-window.addEventListener('scroll', handleScrollHeader);
-
-const siteHeader = document.querySelector('header');
+  const siteHeader = document.querySelector('header');
 
   function updateHeaderOnScroll() {
     if (!siteHeader) return;
-    if (window.innerWidth >= 761 && window.scrollY > 24) {
+    if (window.scrollY > 24) {
       siteHeader.classList.add('scrolled');
     } else {
       siteHeader.classList.remove('scrolled');
@@ -1046,6 +1025,13 @@ const siteHeader = document.querySelector('header');
   window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
   window.addEventListener('resize', updateHeaderOnScroll);
   updateHeaderOnScroll();
+
+  window.addEventListener('load', () => {
+    const logo = document.querySelector('.logo-wrap img');
+    if (logo) {
+      logo.classList.add('logo-loaded');
+    }
+  });
 </script>
 </body>
 </html>
