@@ -543,6 +543,22 @@ footer{
     background-position:center top;
     background-size:cover;
     background-attachment:scroll;
+    position:relative;
+  }
+
+  /* CLAREAMENTO SUAVE (AO INVÉS DE ESCURECER) */
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+
+    background:linear-gradient(
+      180deg,
+      rgba(255,255,255,0.04),
+      rgba(255,255,255,0.08)
+    );
   }
 
   header{
@@ -550,8 +566,9 @@ footer{
   }
 
   header.scrolled{
-    background:rgba(3,13,52,.98);
+    background:rgba(3,13,52,.95);
   }
+  
   .menu-toggle{
     display:inline-flex;
     margin-left:auto;
