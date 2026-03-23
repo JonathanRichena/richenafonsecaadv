@@ -40,21 +40,17 @@ html{scroll-behavior:smooth}
 body{
    margin:0;
   font-family:'Inter',sans-serif;
+
   background-color:#061855;
+  background-image:url('bg-4k-dark.png');
+  background-repeat:no-repeat;
+  background-position:center top;
+  background-size:cover;
+
   color:var(--text);
   padding-top:110px;
-  position:relative;
 }
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:-1;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.10)),
-    url('bg-4k-dark.png') center top / cover no-repeat;
-}
+
 a{color:inherit}
 .container{
   width:min(1120px, 100%);
@@ -540,6 +536,10 @@ footer{
   .areas-grid{grid-template-columns:1fr}
 }
 @media (max-width:760px){
+
+   body{
+    background-attachment:scroll;
+  }
 
   .container{padding:0 18px}
   h1{font-size:32px}
