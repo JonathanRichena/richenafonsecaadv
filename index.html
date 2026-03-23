@@ -38,25 +38,22 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  margin:0;
+   margin:0;
   font-family:'Inter',sans-serif;
   background-color:#061855;
-  background-image:url('bg-4k-dark.png');
-  background-repeat:no-repeat;
-  background-position:center top;
-  background-size:cover;
-  background-attachment:scroll;
   color:var(--text);
   padding-top:110px;
   position:relative;
 }
 body::before{
-   content:"";
+  content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-1;
-  background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.10));
+  background:
+    linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.10)),
+    url('bg-4k-dark.png') center top / cover no-repeat;
 }
 a{color:inherit}
 .container{
@@ -542,15 +539,28 @@ footer{
   .hero-grid,
   .areas-grid{grid-template-columns:1fr}
 }
-@media (max-width: 760px){
+@media (max-width:760px){
+
   .container{padding:0 18px}
-  .header-inner{
-    min-height:auto;
-    padding:14px 0;
-    flex-direction:row;
-    align-items:center;
-    gap:12px;
-    position:relative;
+  h1{font-size:32px}
+
+  body{
+    background-color:#061855;
+  }
+
+  body::before{
+    display:block;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.12)),
+      url('bg-4k-dark.png') center top / cover no-repeat;
+  }
+
+  header{
+    background:rgba(5,18,74,.85);
+  }
+
+  header.scrolled{
+    background:rgba(3,13,52,.98);
   }
   .menu-toggle{
     display:inline-flex;
@@ -635,16 +645,45 @@ footer{
   }
 }
 @media (min-width: 761px){
+  @media (min-width:761px){
+
   body{
     background-color:#061855;
-    background-image:url('bg-4k-dark.png');
-    background-repeat:no-repeat;
-    background-position:center top;
-    background-size:cover;
+  }
+
+  body::before{
+    display:block;
+    background:
+      url('bg-4k-dark.png') center top / cover no-repeat;
     background-attachment:fixed;
   }
-  body::before{
-    display:none;
+
+  .btn{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .btn::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-80%;
+    width:40%;
+    height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.3),transparent);
+    transform:skewX(-20deg);
+    transition:.6s;
+  }
+
+  .btn:hover::after{
+    left:130%;
+  }
+
+  .btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+  }
+  
   }
   header{
     background:rgba(5,18,74,.42);
