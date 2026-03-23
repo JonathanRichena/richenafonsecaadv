@@ -64,30 +64,46 @@ a{color:inherit}
 }
 header{
   
-    position:fixed;
+  position:fixed;
   top:0;
   left:0;
   right:0;
   z-index:1000;
-
-  /* estado inicial (mais leve) */
-  background:linear-gradient(
-    180deg,
-    rgba(4,16,66,0.75) 0%,
-    rgba(4,16,66,0.55) 100%
-  );
-
-  border-bottom:1px solid rgba(255,255,255,.03);
-
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-
+  background:rgba(5,18,74,.94);
+  border-bottom:1px solid rgba(255,255,255,.035);
+  box-shadow:0 10px 24px rgba(0,0,0,.14);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
   transition:
     background .35s ease,
     box-shadow .35s ease,
-    border-color .35s ease;
+    border-color .35s ease,
+    backdrop-filter .35s ease,
+    -webkit-backdrop-filter .35s ease;
+}
+header.scrolled{
+  background:rgba(3,13,52,.88);
+  border-bottom:1px solid rgba(255,255,255,.055);
+  box-shadow:0 12px 28px rgba(0,0,0,.22);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
 }
 
+header::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:0;
+  height:1px;
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,.22),
+    transparent
+  );
+  pointer-events:none;
+}
 header.scrolled{
   /* fica mais sólido e elegante */
   background:linear-gradient(
@@ -605,6 +621,25 @@ footer{
 }
 @media (min-width: 761px){
   body{
+     header{
+    background:rgba(5,18,74,.42);
+    border-bottom:1px solid rgba(255,255,255,.03);
+    box-shadow:none;
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
+  }
+
+  header.scrolled{
+    background:rgba(3,13,52,.82);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    box-shadow:0 12px 28px rgba(0,0,0,.22);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+  }
+
+  .header-inner{
+    min-height:150px;
+  }
     background-color:#061855;
     background-image:url('bg-4k-dark.png');
     background-repeat:no-repeat;
@@ -996,6 +1031,21 @@ function handleScrollHeader(){
 }
 
 window.addEventListener('scroll', handleScrollHeader);
+
+const siteHeader = document.querySelector('header');
+
+  function updateHeaderOnScroll() {
+    if (!siteHeader) return;
+    if (window.innerWidth >= 761 && window.scrollY > 24) {
+      siteHeader.classList.add('scrolled');
+    } else {
+      siteHeader.classList.remove('scrolled');
+    }
+  }
+
+  window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+  window.addEventListener('resize', updateHeaderOnScroll);
+  updateHeaderOnScroll();
 </script>
 </body>
 </html>
