@@ -488,11 +488,6 @@ section{
     background-size:cover;
     background-attachment:scroll;
   }
-
-  body::before{
-    display:block;
-    background:linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.12));
-  }
   
   #sobre .about-panel{
     margin:22px auto 0;
@@ -537,22 +532,17 @@ footer{
 }
 @media (max-width:760px){
 
-   body{
-    background-attachment:scroll;
-  }
-
   .container{padding:0 18px}
+
   h1{font-size:32px}
 
   body{
     background-color:#061855;
-  }
-
-  body::before{
-    display:block;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.12)),
-      url('bg-4k-dark.png') center top / cover no-repeat;
+    background-image:url('bg-4k-dark.png');
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:cover;
+    background-attachment:scroll;
   }
 
   header{
@@ -649,13 +639,6 @@ footer{
 
   body{
     background-color:#061855;
-  }
-
-  body::before{
-    display:block;
-    background:
-      url('bg-4k-dark.png') center top / cover no-repeat;
-    background-attachment:fixed;
   }
 
   .btn{
