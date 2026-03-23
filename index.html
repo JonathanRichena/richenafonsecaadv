@@ -63,28 +63,45 @@ a{color:inherit}
   padding:0 32px;
 }
 header{
+  
     position:fixed;
   top:0;
   left:0;
   right:0;
   z-index:1000;
 
-  /* cor alinhada com o fundo 4K */
+  /* estado inicial (mais leve) */
   background:linear-gradient(
     180deg,
-    rgba(4,16,66,0.96) 0%,
-    rgba(4,16,66,0.88) 100%
+    rgba(4,16,66,0.75) 0%,
+    rgba(4,16,66,0.55) 100%
   );
 
-  border-bottom:1px solid rgba(255,255,255,.04);
-
-  /* sombra mais suave (premium) */
-  box-shadow:
-    0 8px 18px rgba(0,0,0,.18);
+  border-bottom:1px solid rgba(255,255,255,.03);
 
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
+
+  transition:
+    background .35s ease,
+    box-shadow .35s ease,
+    border-color .35s ease;
 }
+
+header.scrolled{
+  /* fica mais sólido e elegante */
+  background:linear-gradient(
+    180deg,
+    rgba(4,16,66,0.96) 0%,
+    rgba(4,16,66,0.90) 100%
+  );
+
+  border-bottom:1px solid rgba(255,255,255,.06);
+
+  box-shadow:0 10px 28px rgba(0,0,0,.22);
+
+  }
+
 .header-inner{
   min-height:150px;
   display:flex;
@@ -967,6 +984,18 @@ document.addEventListener("DOMContentLoaded", function () {
       logo.classList.add('logo-loaded');
     }
   });
+
+  const header = document.querySelector('header');
+
+function handleScrollHeader(){
+  if(window.scrollY > 30){
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+}
+
+window.addEventListener('scroll', handleScrollHeader);
 </script>
 </body>
 </html>
