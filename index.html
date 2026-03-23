@@ -874,7 +874,33 @@ footer{
   } else {
     bindSmoothScroll();
   }
+document.addEventListener("DOMContentLoaded", function () {
 
+  // WHATSAPP
+  document.querySelectorAll('a[href*="wa.me"]').forEach(link => {
+    link.addEventListener("click", () => {
+      if (typeof gtag !== "undefined") {
+        gtag('event', 'click_whatsapp', {
+          event_category: 'contato',
+          event_label: 'WhatsApp'
+        });
+      }
+    });
+  });
+
+  // INSTAGRAM
+  document.querySelectorAll('a[href*="instagram"]').forEach(link => {
+    link.addEventListener("click", () => {
+      if (typeof gtag !== "undefined") {
+        gtag('event', 'click_instagram', {
+          event_category: 'contato',
+          event_label: 'Instagram'
+        });
+      }
+    });
+  });
+
+});
   const menuToggle = document.querySelector('.menu-toggle');
   const menu = document.querySelector('#menu-principal');
 
