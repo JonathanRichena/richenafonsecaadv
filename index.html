@@ -40,21 +40,23 @@ html{scroll-behavior:smooth}
 body{
   margin:0;
   font-family:'Inter',sans-serif;
-  background-color:#04124a;
-  background-image:linear-gradient(180deg, #0c206d 0%, #0a1a60 24%, #071652 52%, #051245 76%, #03103f 100%);
+  background-color:#061855;
+  background-image:url('bg-4k-dark.png');
   background-repeat:no-repeat;
-  background-attachment:fixed;
+  background-position:center top;
+  background-size:cover;
+  background-attachment:scroll;
   color:var(--text);
   padding-top:110px;
   position:relative;
 }
 body::before{
-  content:"";
+   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-1;
-  background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.06));
+  background:linear-gradient(180deg, rgba(0,0,0,.02), rgba(0,0,0,.10));
 }
 a{color:inherit}
 .container{
@@ -484,6 +486,21 @@ section{
   margin-bottom:0;
 }
 @media (max-width: 760px){
+
+  body{
+    background-color:#061855;
+    background-image:url('bg-4k-dark.png');
+    background-repeat:no-repeat;
+    background-position:center top;
+    background-size:cover;
+    background-attachment:scroll;
+  }
+
+  body::before{
+    display:block;
+    background:linear-gradient(180deg, rgba(0,0,0,.03), rgba(0,0,0,.12));
+  }
+  
   #sobre .about-panel{
     margin:22px auto 0;
     padding:24px 22px;
