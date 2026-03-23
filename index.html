@@ -607,35 +607,57 @@ footer{
   .area-link{
     position:relative;
     overflow:hidden;
-    transition:transform .25s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+    transition:
+      transform .25s ease,
+      box-shadow .25s ease,
+      background .25s ease,
+      border-color .25s ease;
   }
   .btn-primary{
-    background:linear-gradient(180deg, rgba(212,175,55,.95), rgba(212,175,55,.84));
-    border:1px solid rgba(212,175,55,.88);
-    box-shadow:0 8px 18px rgba(0,0,0,.16);
+    background:linear-gradient(180deg, rgba(212,175,55,.96), rgba(212,175,55,.82));
+    border:1px solid rgba(212,175,55,.92);
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
   }
   .btn-primary:hover{
-    transform:translateY(-2px);
-    box-shadow:0 12px 24px rgba(0,0,0,.20);
+    transform:translateY(-3px);
+    box-shadow:
+      0 14px 30px rgba(0,0,0,.22),
+      0 0 20px rgba(212,175,55,.18);
   }
   .btn-secondary,
   .area-link{
-    background:rgba(255,255,255,.022);
-    border:1px solid rgba(212,175,55,.30);
-    box-shadow:0 8px 18px rgba(0,0,0,.12);
+    background:rgba(255,255,255,.030);
+    border:1px solid rgba(212,175,55,.34);
+    box-shadow:0 8px 18px rgba(0,0,0,.14);
   }
   .btn-secondary:hover,
   .area-link:hover{
-    transform:translateY(-2px);
-    background:rgba(212,175,55,.08);
-    border-color:rgba(212,175,55,.58);
-    box-shadow:0 12px 22px rgba(0,0,0,.16);
+    transform:translateY(-3px);
+    background:rgba(212,175,55,.10);
+    border-color:rgba(212,175,55,.68);
+    box-shadow:
+      0 12px 24px rgba(0,0,0,.18),
+      0 0 14px rgba(212,175,55,.12);
   }
   .btn::after,
   .area-link::after{
-    display:none;
+    content:"";
+    position:absolute;
+    top:0;
+    left:-85%;
+    width:42%;
+    height:100%;
+    background:linear-gradient(120deg, transparent, rgba(255,255,255,.22), transparent);
+    transform:skewX(-20deg);
+    transition:left .65s ease;
+    pointer-events:none;
+  }
+  .btn:hover::after,
+  .area-link:hover::after{
+    left:130%;
   }
 }
+  
 .reveal{
   opacity:0;
   transform:translateY(22px);
